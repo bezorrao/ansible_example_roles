@@ -1,7 +1,7 @@
 ---
 - name: Create installers dir
   file:
-    path: "{{ installers_dir }}"
+    path: "{{ installer_dir }}"
     state: directory
 
 - name: AWX | clone awx git repo
