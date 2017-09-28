@@ -1,0 +1,11 @@
+---
+- name: AWX | Install necessary rpms
+  yum:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - git
+    - ansible
+    - docker-engine
+    - make
+    - python-docker-py
