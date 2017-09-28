@@ -1,0 +1,6 @@
+---
+- name: AWX | Start docker service
+  service:
+    name: docker
+    enabled: true
+    state: started
