@@ -1,18 +1,18 @@
 ---
-- name: AWX | preparar inventario para instalação
+- name: AWX | Setup inventory options
   lineinfile:
-    path: "{{ installers_dir }}/awx/installer/inventory"
+    path: "{{ installer_dir }}/awx/installer/inventory"
     regexp: '^awx_official='
     line: 'awx_official=true'
 
-#- name: AWX | Ajustar para usar imagem base do dockerhub
+#- name: AWX | Use official docker hub image
 #  blockinfine:
-#    path: "{{ installers_dir }}/awx/installer/inventory"
+#    path: "{{ installer_dir }}/awx/installer/inventory"
 #    block: |
 #      dockerhub_base=ansible
 #      dockerhub_version=latest
 
-- name: AWX | Executa comando de instalação do AWX
+- name: AWX | Run AWX installer
   shell: ansible-playbook -i inventory install.yml
   args:
-    chdir: "{{ installers_dir }}/awx/installer"
+    chdir: "{{ installer_dir }}/awx/installer"
