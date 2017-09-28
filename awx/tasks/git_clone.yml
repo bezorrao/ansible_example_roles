@@ -1,0 +1,10 @@
+---
+- name: AWX | clone awx git repo
+  git:
+    repo: https://github.com/ansible/awx.git
+    dest: "{{ installer_dir }}"
+
+- name: AWX | clone awx-logos git repo
+  git:
+    repo: https://github.com/ansible/awx-logos.git
+    dest: "{{ awx_git_dir }}/awx-logos"
