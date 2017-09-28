@@ -1,0 +1,5 @@
+---
+- include: rpms.yml
+- include: service.yml
+- include: git_clone.yml
+- include: config.yml
