@@ -4,6 +4,11 @@
     path: "{{ installer_dir }}"
     state: directory
 
+- name: Create projects dir
+  file:
+    path: "{{ projects_dir }}"
+    state: directory
+
 - name: AWX | clone awx git repo
   git:
     repo: https://github.com/ansible/awx.git

@@ -1,2 +1,3 @@
 ---
 installer_dir: /opt/installer
+projects_dir: /var/lib/awx/projects

@@ -6,11 +6,17 @@
     line: 'awx_official=true'
 
 #- name: AWX | Use official docker hub image
-#  blockinfine:
+#  blockinfile:
 #    path: "{{ installer_dir }}/awx/installer/inventory"
 #    block: |
 #      dockerhub_base=ansible
 #      dockerhub_version=latest
+
+- name: AWX | Setup projects volume mapping
+  blockinfile:
+    path: "{{ installer_dir }}/awx/installer/local_docker/tasks/main.yml"
+    insertafter: ":8052"
+    block: "    volumes:\n      -'{{ projects_dir }}:/var/lib/awx/projects:rw'"
 
 - name: AWX | Run AWX installer
   shell: ansible-playbook -i inventory install.yml
